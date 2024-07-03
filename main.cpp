@@ -14,15 +14,20 @@ int main(int argc, char *argv[])
     std::unique_ptr<PetalImplementor> detailedPetal = std::make_unique<DetailedPetal>();
     detailedPetal->setColor("blue");
     detailedPetal->setShape("pointed");
-    std::cout<<"Wow changes"<<std::endl;
+
+    std::unique_ptr<PetalImplementor> ghoticPetal = std::make_unique<GhoticPetal>();
+    ghoticPetal->setColor("black");
+    ghoticPetal->setShape("bone drawing");
 
     // Создание цветков с лепестками
     SimpleFlower simpleFlower(std::move(simplePetal));
     DetailedFlower detailedFlower(std::move(detailedPetal));
+    GhoticFlower ghoticFlower(std::move(ghoticPetal));
 
     // Отрисовка цветков
     simpleFlower.draw();
     detailedFlower.draw();
+    ghoticFlower.draw();
 
     return a.exec();
 }
