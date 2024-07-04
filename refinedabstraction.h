@@ -24,5 +24,15 @@ public:
         petalImplementor->drawPetal();
     }
 };
+class GhoticFlower : public Flower {
+public:
+    GhoticFlower(std::unique_ptr<PetalImplementor> petalImplementor)
+        : Flower(std::move(petalImplementor)) {}
+
+    void draw() override {
+        std::cout << "Drawing a ghotic flower with: " << std::endl;
+        petalImplementor->drawPetal();
+    }
+};
 
 #endif // REFINEDABSTRACTION_H
